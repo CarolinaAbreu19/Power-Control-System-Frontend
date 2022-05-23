@@ -1,0 +1,19 @@
+<h1 class="page__title">Cadastro de Áreas Elétricas</h1>
+
+<form action="">
+    <fieldset>
+        <div class="form__field">
+            <label for="name" class="form__label">Nome</label>
+            <input id="name" type="text" class="form__input">
+        </div>
+        <div class="form__field">
+            <label>Usinas disponíveis</label>
+            <p *ngIf="powerPlants.length == 0">Nenhuma usina está disponível!</p>
+            <!-- TODO: Exibir as usinas cadastradas no sistema em forma de lista -->
+        </div>
+        <div class="form__field">
+            <button>Cancelar</button>
+            <button type="submit">Salvar</button>
+        </div>
+    </fieldset>
+</form>
