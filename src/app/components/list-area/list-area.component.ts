@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EletricalArea } from '../../../models/eletricalArea.model';
 
 @Component({
   selector: 'app-list-area',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-area.component.css']
 })
 export class ListAreaComponent implements OnInit {
+
+  public listAreas: EletricalArea[] = [];
 
   constructor() { }
 
