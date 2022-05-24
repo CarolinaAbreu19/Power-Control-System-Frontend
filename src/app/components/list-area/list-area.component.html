@@ -1,0 +1,19 @@
+<h1>Áreas Elétricas</h1>
+
+<table class="list__table">
+    <thead class="table__header">
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Energia disponível</th>
+    </thead>
+    <tbody class="table__body" *ngIf="listAreas.length == 0">
+        <td colspan="3">Nenhum resultado encontrado!</td>
+    </tbody>
+    <tbody class="table__body" *ngFor="let area of listAreas">
+        <td>{{ area.id }}</td>
+        <td>{{ area.name }}</td>
+        <td>{{ area.available_energy }}</td>
+    </tbody>
+</table>
+
+<button>Nova Área Elétrica</button>

@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CreateAreaComponent } from './components/create-area/create-area.component';
+import { ListAreaComponent } from './components/list-area/list-area.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateAreaComponent
+    CreateAreaComponent,
+    ListAreaComponent
   ],
   imports: [
     BrowserModule

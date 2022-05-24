@@ -1,0 +1,4 @@
+.table__header, .table__body {
+    display: flex;
+    gap: 50px;
+}

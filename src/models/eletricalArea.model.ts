@@ -1,4 +1,4 @@
-export class PowerPlant {
+export class EletricalArea {
     /**
      *
      */
