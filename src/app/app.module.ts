@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CreateAreaComponent } from './components/create-area/create-area.component';
 import { ListAreaComponent } from './components/list-area/list-area.component';
+import { AppRoutingModule } from '../modules/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ListAreaComponent } from './components/list-area/list-area.component';
     ListAreaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
