@@ -8,7 +8,7 @@ import { EletricalArea } from '../../../models/eletricalArea.model';
 })
 export class ListAreaComponent implements OnInit {
 
-  public listAreas: EletricalArea[] = [];
+  public eletricalAreas: EletricalArea[] = [];
 
   constructor() { }
 

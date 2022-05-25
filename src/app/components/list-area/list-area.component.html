@@ -6,10 +6,10 @@
         <th>Nome</th>
         <th>Energia disponível</th>
     </thead>
-    <tbody class="table__body" *ngIf="listAreas.length == 0">
+    <tbody class="table__body" *ngIf="eletricalAreas.length == 0">
         <td colspan="3">Nenhum resultado encontrado!</td>
     </tbody>
-    <tbody class="table__body" *ngFor="let area of listAreas">
+    <tbody class="table__body" *ngFor="let area of eletricalAreas">
         <td>{{ area.id }}</td>
         <td>{{ area.name }}</td>
         <td>{{ area.available_energy }}</td>
