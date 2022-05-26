@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { EletricalArea } from 'src/models/eletricalArea.model';
 import { PowerPlant } from 'src/models/powerPlant.model';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-area',
   templateUrl: './create-area.component.html',
@@ -20,37 +20,48 @@ export class CreateAreaComponent implements OnInit {
   public form: FormGroup;
 
   private eletricalAreaId = 1;
-  private powerPlantsArea: PowerPlant[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
+      id: this.eletricalAreaId,
+      code: this.generateCode(),
       name: ['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(100),
         Validators.required
-      ])]
+      ])],
+      power_plants: new FormArray([])
     });
   }
-
-  addPowerPlant(powerPlant: PowerPlant) {
-    this.powerPlantsArea.push(powerPlant);
-    console.log(this.powerPlantsArea)
+  
+  onCheckboxChange(event: any) {
+    const selectedPowerPlants = (this.form.controls.power_plants as FormArray);
+    if(event.target.checked) {
+      selectedPowerPlants.push(new FormControl(event.target.value));
+    } else {
+      const index = selectedPowerPlants.controls.findIndex(powerPlant => powerPlant.value === event.target.value);
+      selectedPowerPlants.removeAt(index);
+    }
   }
 
-  save() {
-    for(let powerPlant of this.powerPlantsArea) {
-      powerPlant.id_eletrical_area = this.eletricalAreaId;
+  generateCode() {
+    let code = '';
+    const keys = 'abcdefghijklmnopqrstuvwxyz1234567890';
+
+    for(let i = 0; i < 20; i++) {
+      code += keys.charAt(Math.floor(Math.random() * keys.length));
     }
 
-    this.eletricalAreas.push({
-      id: this.eletricalAreaId,
-      code: '0001',
-      name: 'Teste Area Eletrica',
-      available_energy: 10,
-      power_plants: this.powerPlantsArea
-    });
+    return code;
+  }
 
-    this.eletricalAreaId++;
+  submit() {
+    if(this.form.value.name.length >= 3 && this.form.value.power_plants.length > 1) {
+      const data = JSON.stringify(this.form.value);
+      sessionStorage.setItem('eletrical_areas', data);
+      this.eletricalAreaId++;
+      this.router.navigate(['/list-areas']);
+    }
   }
 
   ngOnInit(): void {

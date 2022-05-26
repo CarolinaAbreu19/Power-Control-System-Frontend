@@ -1,6 +1,6 @@
 <h1 class="page__title">Cadastro de Áreas Elétricas</h1>
 
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="submit()">
     <fieldset>
         <div class="form__field">
             <label for="name" class="form__label">Nome</label>
@@ -10,7 +10,9 @@
                 class="form__input" 
                 formControlName="name"
                 maxlength="100">
-            <span class="form__error" *ngIf="form.controls.name.invalid && !form.controls.name.pristine">Este campo deve conter entre 3 e 100 caracteres</span>
+            <span class="form__error" *ngIf="form.controls.name.invalid && !form.controls.name.pristine">
+                Este campo deve conter entre 3 e 100 caracteres
+            </span>
         </div>
         <div class="form__field">
             <label>Usinas disponíveis</label>
@@ -24,11 +26,18 @@
                     <th>Ações</th>
                 </thead>
 
-                <tbody class="table__body" *ngFor="let powerPlant of powerPlants">
+                <tbody class="table__body" *ngFor="let powerPlant of powerPlants; let i = index">
                     <td>{{ powerPlant.code }}</td>
                     <td>{{ powerPlant.name }}</td>
                     <td>{{ powerPlant.available_energy }}</td>
-                    <td><button (click)="addPowerPlant(powerPlant)">Selecionar</button></td>
+                    <td>
+                        <input
+                            type="checkbox" 
+                            name="power_plant_selected" 
+                            formArrayName="power_plants" 
+                            [value]="powerPlant.code"
+                            (change)="onCheckboxChange($event)">
+                    </td>
                 </tbody>
             </table>
 
