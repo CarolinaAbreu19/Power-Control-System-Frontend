@@ -36,7 +36,7 @@ export class CreatePowerPlantComponent implements OnInit {
       available_energy: ['', Validators.compose([
         Validators.required
       ])],
-      id_eletrical_area: ['', Validators.compose([
+      code_eletrical_area: ['', Validators.compose([
         Validators.required
       ])],
 
