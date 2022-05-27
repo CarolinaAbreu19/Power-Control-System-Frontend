@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EletricalEquipament } from 'src/models/electricalEquipment.model';
 import { PowerPlant } from 'src/models/powerPlant.model';
 
@@ -22,7 +23,7 @@ export class CreatePowerPlantComponent implements OnInit {
   private powerPlantId = 1;
   private eletricalEquipamentPowerPlant: EletricalEquipament[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
       name: ['', Validators.compose([
         Validators.minLength(3),
@@ -41,8 +42,20 @@ export class CreatePowerPlantComponent implements OnInit {
       ])],
 
     });
+    this.getPowerPlants();
+  }
+  onSubmit(){
+    this.form.value.available_energy = parseFloat(this.form.value.available_energy.toFixed(2));
+    const newPowerPlant:PowerPlant = {...this.form.value, id_eletrical_area: this.form.value.code_eletrical_area };
+    this.powerPlant.push(newPowerPlant);
+    const data = JSON.stringify(this.powerPlant);
+    localStorage.setItem("powerPlants", data);
   }
 
+  getPowerPlants(){
+    const data: string = localStorage.getItem("powerPlants") || "[]";
+    this.powerPlant = JSON.parse(data);
+  }
   addEEletricalEquipament(eletricalEquipament: EletricalEquipament) {
     this.eletricalEquipamentPowerPlant.push(eletricalEquipament);
     console.log(this.eletricalEquipamentPowerPlant)

@@ -1,6 +1,6 @@
 <h1 class="page__title">Cadastro de Usinas Elétricas</h1>
 
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
     <fieldset>
         <div class="form__field">
             <label for="name" class="form__label">Nome: </label>
