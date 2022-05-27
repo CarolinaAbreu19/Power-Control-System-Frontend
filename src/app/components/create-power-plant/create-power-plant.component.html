@@ -1,0 +1,83 @@
+<h1 class="page__title">Cadastro de Usinas Elétricas</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <fieldset>
+        <div class="form__field">
+            <label for="name" class="form__label">Nome: </label>
+            <input 
+                id="name" 
+                type="text" 
+                class="form__input" 
+                formControlName="name"
+                maxlength="100">
+            <span class="form__error" *ngIf="form.controls.name.invalid && !form.controls.name.pristine">Este campo deve conter entre 3 e 100 caracteres</span>
+            <br>
+            <label for="code" class="form__label">Codigo: </label>
+            <input 
+                id="code" 
+                type="text" 
+                class="form__input" 
+                formControlName="code"
+                maxlength="20">
+            <span
+                class="form__error"
+                *ngIf="form.controls.code.invalid && 
+                    !form.controls.code.pristine"
+            >
+                Este campo deve no máximo 20 caracteres!
+            </span>
+            <br>
+            <label for="available_energy" class="form__label">Valor de geração: </label>
+            <input 
+                id="available_energy" 
+                type="number" 
+                class="form__input" 
+                formControlName="available_energy"
+            >
+            <span
+                class="form__error"
+                *ngIf="form.controls.available_energy.invalid && 
+                    !form.controls.available_energy.pristine"
+            >
+                Campo vazio ou valor invalido!
+            </span>
+            
+        </div>
+        <div class="form__field">
+            <label>Equipamentos disponíveis</label>
+            <p *ngIf="eletricalAreas.length === 0">Nenhuma equipamento está disponível!</p>
+            
+            <table class="form__table">
+                <thead class="table__head">
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Ações</th>
+                </thead>
+
+                <tbody class="table__body" *ngFor="let eletricalArea of eletricalAreas">
+                    <tr>
+                        <td>{{ eletricalArea.code }}</td>
+                        <td>{{ eletricalArea.name }}</td>
+                        <td>{{ eletricalArea.available_energy }}</td>
+                        <td>
+                            <input
+                                type="radio" 
+                                name="eletrical_area_selected" 
+                                formControlName="eletrical_areas"
+                                [value]="eletricalArea.code"
+                                (change)="onCheckboxChange($event)">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="form__field">
+            <button>
+                <a routerLink="/list-power-plant">Cancelar</a>
+            </button>
+            <button type="submit"  [disabled]="form.invalid">Salvar</button>
+        </div>
+    </fieldset>
+</form>

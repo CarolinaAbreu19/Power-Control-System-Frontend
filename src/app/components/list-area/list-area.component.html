@@ -4,7 +4,7 @@
     <thead class="table__header">
         <th>Código</th>
         <th>Nome</th>
-        <th>Energia disponível</th>
+        <th colspan="2">Ações</th>
     </thead>
     <tbody class="table__body" *ngIf="eletricalAreas.length == 0">
         <td colspan="3">Nenhum resultado encontrado!</td>
@@ -12,7 +12,8 @@
     <tbody class="table__body" *ngFor="let area of eletricalAreas">
         <td>{{ area.id }}</td>
         <td>{{ area.name }}</td>
-        <td>{{ area.available_energy }}</td>
+        <td><button>Editar</button></td>
+        <td><button>Excluir</button></td>
     </tbody>
 </table>
 

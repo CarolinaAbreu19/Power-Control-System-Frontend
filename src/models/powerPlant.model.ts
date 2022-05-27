@@ -1,12 +1,13 @@
+import { EletricalEquipament } from "./electricalEquipment.model";
+
 export class PowerPlant {
-    /**
-     *
-     */
     constructor(
-        public id: Number,
+        public id: any,
         public code: String,
         public name: String,
         public available_energy: Number,
-        public id_eletrical_area: Number
-    ) {}
+        public code_eletrical_area: Number,
+        public eletricalEquip:EletricalEquipament[],
+    ) {
+    }
 }
