@@ -1,1 +1,38 @@
-<p>list-power-plant works!</p>
+<h1>Usinas Elétricas</h1>
+
+<table class="list__table">
+    <thead class="table__header">
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Valor de Geração</th>
+        <th>Área Eletrica</th>
+        <th>Ações</th>
+    </thead>
+    <tbody class="table__body" *ngIf="powerPlants.length == 0">
+        <td colspan="3">Nenhum resultado encontrado!</td>
+    </tbody>
+    <tbody class="table__body" *ngFor="let powerPlant of powerPlants">
+        <tr>
+            <td>{{ powerPlant.code }}</td>
+            <td>{{ powerPlant.name }}</td>
+            <td>{{ powerPlant.available_energy }}</td>
+            <td>{{ powerPlant.id_eletrical_area }}</td>
+            <td>
+                <button
+                    (click)="update()"
+                >
+                <i class="fas fa-pen"></i>
+                </button>
+                <button
+                    (click)="remove(powerPlant)"
+                >
+                <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+</table>
+
+<button>
+    <a routerLink="/create-power-plant">Nova usina elétrica</a>
+</button>
