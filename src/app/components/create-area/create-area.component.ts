@@ -28,7 +28,8 @@ export class CreateAreaComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(100),
         Validators.required
-      ])]
+      ]),],
+      available_energy: 0
     });
   }
   
@@ -42,6 +43,7 @@ export class CreateAreaComponent implements OnInit {
   //   }
   // }
 
+  // Somente testes
   generateCode() {
     let code = '';
     const keys = 'abcdefghijklmnopqrstuvwxyz1234567890';
