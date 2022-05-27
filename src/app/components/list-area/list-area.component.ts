@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EletricalArea } from '../../../models/eletricalArea.model';
 
 @Component({
@@ -17,9 +18,9 @@ export class ListAreaComponent implements OnInit {
 
   constructor() { }
 
-  edit(code: String) {
-    // Fazer uma requisição de editar os dados passando o código da área elétrica
-    console.log(code);
+  edit(area: EletricalArea) {
+    // Fazer uma requisição de editar os dados passando as informações da área elétrica
+    console.log(area);
   }
 
   delete(code: String) {
