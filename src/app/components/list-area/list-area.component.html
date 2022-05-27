@@ -5,6 +5,7 @@
         <tr class="table__row">
             <th>Código</th>
             <th>Nome</th>
+            <th>Energia disponível</th>
             <th colspan="2">Ações</th>
         </tr>
     </thead>
@@ -17,6 +18,7 @@
         <tr *ngFor="let area of eletricalAreas" class="table__row">
             <td class="table__item">{{ area.code }}</td>
             <td class="table__item">{{ area.name }}</td>
+            <td class="table__item">{{ area.available_energy }}</td>
             <td class="table__item" colspan="2">
                 <button (click)="edit(area)">Editar</button>
                 <button (click)="delete(area.code)">Excluir</button>

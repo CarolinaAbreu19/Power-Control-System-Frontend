@@ -6,5 +6,6 @@ export class EletricalArea {
         public id: Number,
         public code: String,
         public name: String,
+        public available_energy: Number
     ) {}
 }

@@ -13,10 +13,10 @@ import { PowerPlant } from 'src/models/powerPlant.model';
 export class CreatePowerPlantComponent implements OnInit {
 
   public eletricalAreas: EletricalArea[] = [
-    { id: 1, code: "0001", name: "teste2", },
-    { id: 2, code: "0002", name: "teste3", },
-    { id: 3, code: "0003", name: "teste4",  },
-    { id: 4, code: "0004", name: "teste5",  },
+    { id: 1, code: "0001", name: "teste2", available_energy: 10 },
+    { id: 2, code: "0002", name: "teste3", available_energy: 10 },
+    { id: 3, code: "0003", name: "teste4", available_energy: 10 },
+    { id: 4, code: "0004", name: "teste5", available_energy: 10 },
   ];
   public powerPlant: PowerPlant[] = [];
   public form: FormGroup;
