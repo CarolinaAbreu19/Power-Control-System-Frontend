@@ -17,6 +17,16 @@ export class ListAreaComponent implements OnInit {
 
   constructor() { }
 
+  edit(code: String) {
+    // Fazer uma requisição de editar os dados passando o código da área elétrica
+    console.log(code);
+  }
+
+  delete(code: String) {
+    // Fazer uma requisição de excluir os dados passando o código da área elétrica
+    console.log(code);
+  }
+
   ngOnInit(): void {
   }
 
