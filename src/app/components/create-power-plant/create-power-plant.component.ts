@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EletricalEquipament } from 'src/models/electricalEquipment.model';
+import { EletricalArea } from 'src/models/eletricalArea.model';
 import { PowerPlant } from 'src/models/powerPlant.model';
 
 @Component({
@@ -11,11 +12,11 @@ import { PowerPlant } from 'src/models/powerPlant.model';
 })
 export class CreatePowerPlantComponent implements OnInit {
 
-  public eletricalEquipaments: EletricalEquipament[] = [
-    { id: 1, code: "0001", name: "teste2", type: 1, id_power_plant: 0 },
-    { id: 2, code: "0002", name: "teste3", type: 2, id_power_plant: 0 },
-    { id: 3, code: "0003", name: "teste4", type: 3, id_power_plant: 0 },
-    { id: 4, code: "0004", name: "teste5", type: 1, id_power_plant: 0 },
+  public eletricalAreas: EletricalArea[] = [
+    { id: 1, code: "0001", name: "teste2", available_energy: 10, power_plants: []},
+    { id: 2, code: "0002", name: "teste3", available_energy: 10, power_plants: []},
+    { id: 3, code: "0003", name: "teste4", available_energy: 10, power_plants: [] },
+    { id: 4, code: "0004", name: "teste5", available_energy: 10, power_plants: [] },
   ];
   public powerPlant: PowerPlant[] = [];
   public form: FormGroup;
@@ -37,7 +38,8 @@ export class CreatePowerPlantComponent implements OnInit {
       available_energy: ['', Validators.compose([
         Validators.required
       ])],
-      code_eletrical_area: ['', Validators.compose([
+
+      eletrical_areas: ['0001', Validators.compose([
         Validators.required
       ])],
 
@@ -45,37 +47,31 @@ export class CreatePowerPlantComponent implements OnInit {
     this.getPowerPlants();
   }
   onSubmit(){
-    this.form.value.available_energy = parseFloat(this.form.value.available_energy.toFixed(2));
-    const newPowerPlant:PowerPlant = {...this.form.value, id_eletrical_area: this.form.value.code_eletrical_area };
-    this.powerPlant.push(newPowerPlant);
-    const data = JSON.stringify(this.powerPlant);
-    localStorage.setItem("powerPlants", data);
+      console.log(this.form.value.eletrical_areas)
+      this.form.value.available_energy = parseFloat(this.form.value.available_energy.toFixed(2));
+      const newPowerPlant:PowerPlant = this.form.value
+      console.log(newPowerPlant)
+      this.powerPlant.push(newPowerPlant);
+      const data = JSON.stringify(this.powerPlant);
+      localStorage.setItem("powerPlants", data);
   }
-
+  onCheckboxChange(event: any) {
+    console.log(this.form.controls)
+    if(event.target.checked) {
+      this.form.value.eletrical_areas = (event.target.value);
+    }
+  }
   getPowerPlants(){
     const data: string = localStorage.getItem("powerPlants") || "[]";
     this.powerPlant = JSON.parse(data);
   }
-  addEEletricalEquipament(eletricalEquipament: EletricalEquipament) {
-    this.eletricalEquipamentPowerPlant.push(eletricalEquipament);
-    console.log(this.eletricalEquipamentPowerPlant)
-  }
+
 
   save() {
     for(let eletricalEquipament of this.eletricalEquipamentPowerPlant) {
       eletricalEquipament.id_power_plant = this.powerPlantId;
     }
 
-    this.powerPlant.push({
-      id: this.powerPlantId,
-      code: '0001',
-      name: 'Teste Usina',
-      available_energy: 10,
-      id_eletrical_area: 1,
-      eletricalEquip: this.eletricalEquipamentPowerPlant
-    });
-
-    this.powerPlantId++;
   }
 
   ngOnInit(): void {

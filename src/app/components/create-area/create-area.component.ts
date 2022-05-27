@@ -11,10 +11,10 @@ import { PowerPlant } from 'src/models/powerPlant.model';
 export class CreateAreaComponent implements OnInit {
 
   public powerPlants: PowerPlant[] = [
-    { id: 1, code: "0001", name: "teste2", available_energy: 10, id_eletrical_area: 0, eletricalEquip:[] },
-    { id: 2, code: "0002", name: "teste3", available_energy: 20, id_eletrical_area: 0, eletricalEquip:[] },
-    { id: 3, code: "0003", name: "teste4", available_energy: 30, id_eletrical_area: 0, eletricalEquip:[] },
-    { id: 4, code: "0004", name: "teste5", available_energy: 40, id_eletrical_area: 0, eletricalEquip:[] },
+    { id: 1, code: "0001", name: "teste2", available_energy: 10, code_eletrical_area: 0, eletricalEquip:[] },
+    { id: 2, code: "0002", name: "teste3", available_energy: 20, code_eletrical_area: 0, eletricalEquip:[] },
+    { id: 3, code: "0003", name: "teste4", available_energy: 30, code_eletrical_area: 0, eletricalEquip:[] },
+    { id: 4, code: "0004", name: "teste5", available_energy: 40, code_eletrical_area: 0, eletricalEquip:[] },
   ];
   public eletricalAreas: EletricalArea[] = [];
   public form: FormGroup;
@@ -39,7 +39,7 @@ export class CreateAreaComponent implements OnInit {
 
   save() {
     for(let powerPlant of this.powerPlantsArea) {
-      powerPlant.id_eletrical_area = this.eletricalAreaId;
+      powerPlant.code_eletrical_area = this.eletricalAreaId;
     }
 
     this.eletricalAreas.push({

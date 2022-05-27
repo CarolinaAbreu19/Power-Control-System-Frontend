@@ -41,25 +41,11 @@
             >
                 Campo vazio ou valor invalido!
             </span>
-            <br>
-            <label for="code_eletrical_area" class="form__label">Codigo da Área Elétrica: </label>
-            <input 
-                id="code_eletrical_area" 
-                type="text" 
-                class="form__input" 
-                formControlName="code_eletrical_area"
-                maxlength="20">
-            <span
-                class="form__error"
-                *ngIf="form.controls.code_eletrical_area.invalid && 
-                    !form.controls.code_eletrical_area.pristine"
-            >
-                Este campo deve no máximo 20 caracteres!
-            </span>
+            
         </div>
         <div class="form__field">
             <label>Equipamentos disponíveis</label>
-            <p *ngIf="eletricalEquipaments.length === 0">Nenhuma equipamento está disponível!</p>
+            <p *ngIf="eletricalAreas.length === 0">Nenhuma equipamento está disponível!</p>
             
             <table class="form__table">
                 <thead class="table__head">
@@ -69,12 +55,19 @@
                     <th>Ações</th>
                 </thead>
 
-                <tbody class="table__body" *ngFor="let eletricalEquipament of eletricalEquipaments">
+                <tbody class="table__body" *ngFor="let eletricalArea of eletricalAreas">
                     <tr>
-                        <td>{{ eletricalEquipament.code }}</td>
-                        <td>{{ eletricalEquipament.name }}</td>
-                        <td>{{ eletricalEquipament.type }}</td>
-                        <td><button (click)="addEEletricalEquipament(eletricalEquipament)">Selecionar</button></td>
+                        <td>{{ eletricalArea.code }}</td>
+                        <td>{{ eletricalArea.name }}</td>
+                        <td>{{ eletricalArea.available_energy }}</td>
+                        <td>
+                            <input
+                                type="radio" 
+                                name="eletrical_area_selected" 
+                                formControlName="eletrical_areas"
+                                [value]="eletricalArea.code"
+                                (change)="onCheckboxChange($event)">
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -84,7 +77,7 @@
             <button>
                 <a routerLink="/list-power-plant">Cancelar</a>
             </button>
-            <button type="submit">Salvar</button>
+            <button type="submit"  [disabled]="form.invalid">Salvar</button>
         </div>
     </fieldset>
 </form>
