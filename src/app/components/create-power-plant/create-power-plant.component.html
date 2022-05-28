@@ -29,10 +29,12 @@
             <br>
             <label for="available_energy" class="form__label">Valor de geração: </label>
             <input 
-                id="available_energy" 
-                type="number" 
-                class="form__input" 
-                formControlName="available_energy"
+              id="available_energy" 
+              type="number" 
+              class="form__input" 
+              formControlName="available_energy"
+              (change)="formatNumber($event)"
+
             >
             <span
                 class="form__error"

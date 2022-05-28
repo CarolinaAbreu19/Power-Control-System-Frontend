@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EletricalEquipament } from 'src/models/electricalEquipment.model';
 import { EletricalArea } from 'src/models/eletricalArea.model';
@@ -44,11 +44,17 @@ export class CreatePowerPlantComponent implements OnInit {
     this.getPowerPlants();
   }
   onSubmit(){
-      this.form.value.available_energy = parseFloat(this.form.value.available_energy.toFixed(2));
-      const newPowerPlant:PowerPlant = this.form.value
-      this.powerPlant.push(newPowerPlant);
-      const data = JSON.stringify(this.powerPlant);
-      localStorage.setItem("powerPlants", data);
+    const newPowerPlant:PowerPlant = this.form.value
+    this.powerPlant.push(newPowerPlant);
+    const data = JSON.stringify(this.powerPlant);
+    localStorage.setItem("powerPlants", data);
+    this.clear();
+  }
+  formatNumber(event: any) {
+    this.form.controls.available_energy.setValue(parseFloat(this.form.value.available_energy.toFixed(2)));
+  }
+  clear() {
+    this.form.reset();
   }
   onCheckboxChange(event: any) {
     if(event.target.checked) {
