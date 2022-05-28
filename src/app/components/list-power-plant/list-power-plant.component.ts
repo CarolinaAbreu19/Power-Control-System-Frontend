@@ -9,6 +9,7 @@ import { PowerPlant } from 'src/models/powerPlant.model';
 })
 export class ListPowerPlantComponent implements OnInit {
   public powerPlants: PowerPlant[] = JSON.parse(localStorage.getItem("powerPlants") || "[]");
+  public powerPlantForUpdate: PowerPlant | undefined;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -22,8 +23,8 @@ export class ListPowerPlantComponent implements OnInit {
         localStorage.setItem("powerPlants", data);
      }
   }
-  update(){
-
+  update(powerPlant: PowerPlant) {
+    this.powerPlantForUpdate = powerPlant;
   }
 
 }

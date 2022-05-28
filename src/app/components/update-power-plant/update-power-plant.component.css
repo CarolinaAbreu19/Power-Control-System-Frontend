@@ -1,0 +1,38 @@
+table {
+  margin: 1rem 0;
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
+thead {
+  border: 1px solid black;
+  font-size: large;
+}
+
+th {
+  padding: 0.5rem 0.25rem;
+  padding-right: 1.5rem;
+}
+
+tr {
+  /* background-color: blue; */
+  border-bottom: 1px solid gray;
+  padding-left: 1.25rem;
+}
+
+  tr:hover {
+    background-color: #e5e5e5;
+  }
+
+td {
+  /* margin: 1rem; */
+  padding: 0.25rem;
+}
+
+tr > td:first-child {
+  padding-left: 0.5rem;
+}
+
+thead > th:first-child {
+  padding-left: 0.5rem;
+}

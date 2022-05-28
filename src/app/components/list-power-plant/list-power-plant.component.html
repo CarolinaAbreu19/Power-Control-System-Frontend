@@ -1,5 +1,12 @@
 <h1>Usinas Elétricas</h1>
 
+<app-update-power-plant
+  *ngIf="powerPlantForUpdate"
+  (finishUpdatePowerPlant)="powerPlantForUpdate=undefined"
+  [powerPlant]="powerPlantForUpdate"
+>
+</app-update-power-plant>
+
 <table class="list__table">
     <thead class="table__header">
         <th>Código</th>
@@ -18,11 +25,15 @@
         <td>{{ powerPlant.available_energy }}</td>
         <td>{{ powerPlant.code_eletrical_area}}</td>
         <td>
-          <button (click)="update()"
+          <button
+                  [disabled]="powerPlantForUpdate"
+                  (click)="update(powerPlant)"
                   data-message="Editar">
             <i class="fas fa-pen"></i>
           </button>
-          <button (click)="remove(powerPlant)"
+          <button
+                  [disabled]="powerPlantForUpdate"
+                  (click)="remove(powerPlant)"
                   data-message="Remover">
             <i class="fas fa-trash"></i>
           </button>

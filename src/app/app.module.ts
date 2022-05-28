@@ -9,6 +9,7 @@ import { AppRoutingModule } from '../modules/app-routing.module';
 import { CreatePowerPlantComponent } from './components/create-power-plant/create-power-plant.component';
 import { ListPowerPlantComponent } from './components/list-power-plant/list-power-plant.component';
 import { FormsModule } from '@angular/forms';
+import { UpdatePowerPlantComponent } from './components/update-power-plant/update-power-plant.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     CreateAreaComponent,
     ListAreaComponent,
     CreatePowerPlantComponent,
-    ListPowerPlantComponent
+    ListPowerPlantComponent,
+    UpdatePowerPlantComponent
   ],
   imports: [
     BrowserModule,
