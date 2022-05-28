@@ -63,10 +63,12 @@
                         <td>
                             <input
                                 type="radio" 
-                                name="eletrical_area_selected" 
-                                formControlName="eletrical_areas"
+                                [id]="eletricalArea.code" 
+                                name="code_eletrical_area" 
+                                formControlName="code_eletrical_area"
                                 [value]="eletricalArea.code"
-                                (change)="onCheckboxChange($event)">
+                                (change)="onCheckboxChange($event)"
+                                   >
                         </td>
                     </tr>
                 </tbody>

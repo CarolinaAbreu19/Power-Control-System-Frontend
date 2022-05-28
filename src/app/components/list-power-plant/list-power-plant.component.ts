@@ -8,10 +8,11 @@ import { PowerPlant } from 'src/models/powerPlant.model';
   styleUrls: ['./list-power-plant.component.css']
 })
 export class ListPowerPlantComponent implements OnInit {
-  public powerPlants: PowerPlant[] =  JSON.parse(localStorage.getItem("powerPlants") || "[]");
+  public powerPlants: PowerPlant[] = JSON.parse(localStorage.getItem("powerPlants") || "[]");
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.powerPlants[0].code_eletrical_area)
   }
   remove(powerPlant: PowerPlant){
     const indexPowerPlant  = this.powerPlants.indexOf(powerPlant);

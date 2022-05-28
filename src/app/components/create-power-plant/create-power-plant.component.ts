@@ -38,25 +38,19 @@ export class CreatePowerPlantComponent implements OnInit {
       available_energy: ['', Validators.compose([
         Validators.required
       ])],
-
-      eletrical_areas: ['0001', Validators.compose([
-        Validators.required
-      ])],
+      code_eletrical_area: new FormControl('', Validators.required)
 
     });
     this.getPowerPlants();
   }
   onSubmit(){
-      console.log(this.form.value.eletrical_areas)
       this.form.value.available_energy = parseFloat(this.form.value.available_energy.toFixed(2));
       const newPowerPlant:PowerPlant = this.form.value
-      console.log(newPowerPlant)
       this.powerPlant.push(newPowerPlant);
       const data = JSON.stringify(this.powerPlant);
       localStorage.setItem("powerPlants", data);
   }
   onCheckboxChange(event: any) {
-    console.log(this.form.controls)
     if(event.target.checked) {
       this.form.value.eletrical_areas = (event.target.value);
     }
@@ -66,13 +60,6 @@ export class CreatePowerPlantComponent implements OnInit {
     this.powerPlant = JSON.parse(data);
   }
 
-
-  save() {
-    for(let eletricalEquipament of this.eletricalEquipamentPowerPlant) {
-      eletricalEquipament.id_power_plant = this.powerPlantId;
-    }
-
-  }
 
   ngOnInit(): void {
   }

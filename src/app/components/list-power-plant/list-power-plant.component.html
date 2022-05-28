@@ -12,26 +12,22 @@
         <td colspan="3">Nenhum resultado encontrado!</td>
     </tbody>
     <tbody class="table__body" *ngFor="let powerPlant of powerPlants">
-        <tr>
-            <td>{{ powerPlant.code }}</td>
-            <td>{{ powerPlant.name }}</td>
-            <td>{{ powerPlant.available_energy }}</td>
-            <td>{{ powerPlant.code_eletrical_area }}</td>
-            <td>
-                <button
-                    (click)="update()"
-                    data-message="Editar"
-                >
-                <i class="fas fa-pen"></i>
-                </button>
-                <button
-                    (click)="remove(powerPlant)"
-                    data-message="Remover"
-                >
-                <i class="fas fa-trash" ></i>
-                </button>
-            </td>
-        </tr>
+      <tr>
+        <td>{{ powerPlant.code }}</td>
+        <td>{{ powerPlant.name }}</td>
+        <td>{{ powerPlant.available_energy }}</td>
+        <td>{{ powerPlant.code_eletrical_area}}</td>
+        <td>
+          <button (click)="update()"
+                  data-message="Editar">
+            <i class="fas fa-pen"></i>
+          </button>
+          <button (click)="remove(powerPlant)"
+                  data-message="Remover">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>
         </tbody>
 </table>
 
