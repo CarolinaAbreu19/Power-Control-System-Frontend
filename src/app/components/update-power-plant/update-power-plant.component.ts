@@ -31,9 +31,20 @@ export class UpdatePowerPlantComponent implements OnInit {
       ])],
       code_eletrical_area: new FormControl('0001', Validators.required)
     });
-}
+  }
+  saveInStorageUpdate(powerPlantNew: PowerPlant) {
+    const powerPlants: PowerPlant[] = JSON.parse(localStorage.getItem("powerPlants") || "[]");
+    const indexPowerPlant = powerPlants.findIndex((pPlant) => pPlant.code === powerPlantNew.code);
+    if (indexPowerPlant !== -1) {
+      powerPlants[indexPowerPlant] = powerPlantNew;
+      const data = JSON.stringify(powerPlants);
+      localStorage.setItem("powerPlants", data);
+      document.location.reload();
+    }
+  }
   onSubmit() {
     console.log("Updanting");
+    this.saveInStorageUpdate({ ...this.form.value, code: this.powerPlant?.code });
     setTimeout(() => this.endUpdated(), 250);
   }
   endUpdated() {
@@ -55,7 +66,6 @@ export class UpdatePowerPlantComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    console.log(this.powerPlant)
     this.form.controls.name.setValue(this.powerPlant?.name);
     this.form.controls.available_energy.setValue(this.powerPlant?.available_energy);
     this.form.controls.code_eletrical_area.setValue(this.powerPlant?.code_eletrical_area);
