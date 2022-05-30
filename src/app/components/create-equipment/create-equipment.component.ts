@@ -41,7 +41,7 @@ export class CreateEquipmentComponent implements OnInit {
     const newEletricalEquipament: EletricalEquipament = this.form.value
     this.eletricalEquipament.push(newEletricalEquipament);
     const data = JSON.stringify(this.eletricalEquipament);
-    localStorage.setItem("eletricalEquipaments", data);
+    localStorage.setItem("eletricalEquipments", data);
     this.clear();
   }
   clear() {

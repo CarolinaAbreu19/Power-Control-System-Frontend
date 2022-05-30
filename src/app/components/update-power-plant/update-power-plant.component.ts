@@ -26,10 +26,10 @@ export class UpdatePowerPlantComponent implements OnInit {
         Validators.maxLength(100),
         Validators.required
       ])],
-      available_energy: ['12', Validators.compose([
+      available_energy: ['', Validators.compose([
         Validators.required
       ])],
-      code_eletrical_area: new FormControl('0001', Validators.required)
+      code_eletrical_area: new FormControl('', Validators.required)
     });
   }
   saveInStorageUpdate(powerPlantNew: PowerPlant) {

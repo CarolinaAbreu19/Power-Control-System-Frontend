@@ -7,21 +7,21 @@ import { EletricalEquipament } from '../../../models/electricalEquipment.model';
   styleUrls: ['./list-equipment.component.css']
 })
 export class ListEquipmentComponent implements OnInit {
-  public eletricalEquipaments: EletricalEquipament[] = JSON.parse(localStorage.getItem("eletricalEquipaments") || "[]");
-  public eletricalEquipamentForUpdate: EletricalEquipament | undefined;
+  public eletricalEquipments: EletricalEquipament[] = JSON.parse(localStorage.getItem("eletricalEquipments") || "[]");
+  public eletricalEquipmentForUpdate: EletricalEquipament | undefined;
   constructor() { }
 
   ngOnInit(): void {
   }
   remove(eletricalEquipament: EletricalEquipament) {
-    const indexEletricalEquipament = this.eletricalEquipaments.indexOf(eletricalEquipament);
+    const indexEletricalEquipament = this.eletricalEquipments.indexOf(eletricalEquipament);
     if (indexEletricalEquipament !== -1) {
-      this.eletricalEquipaments.splice(indexEletricalEquipament, 1);
-      const data = JSON.stringify(this.eletricalEquipaments);
-      localStorage.setItem("eletricalEquipaments", data);
+      this.eletricalEquipments.splice(indexEletricalEquipament, 1);
+      const data = JSON.stringify(this.eletricalEquipments);
+      localStorage.setItem("eletricalEquipments", data);
     }
   }
   update(eletricalEquipament: EletricalEquipament) {
-    this.eletricalEquipamentForUpdate = eletricalEquipament;
+    this.eletricalEquipmentForUpdate = eletricalEquipament;
   }
 }

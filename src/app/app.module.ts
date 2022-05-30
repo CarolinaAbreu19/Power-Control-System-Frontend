@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { UpdatePowerPlantComponent } from './components/update-power-plant/update-power-plant.component';
 import { CreateEquipmentComponent } from './components/create-equipment/create-equipment.component';
 import { ListEquipmentComponent } from './components/list-equipment/list-equipment.component';
+import { UpdateEquipmentComponent } from './components/update-equipment/update-equipment.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ListEquipmentComponent } from './components/list-equipment/list-equipme
     ListPowerPlantComponent,
     UpdatePowerPlantComponent,
     CreateEquipmentComponent,
-    ListEquipmentComponent
+    ListEquipmentComponent,
+    UpdateEquipmentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,8 @@
 <h1>Equipamentos Elétricos</h1>
-
+<app-update-equipment *ngIf="eletricalEquipmentForUpdate"
+                      (finishUpdateEquipament)="eletricalEquipmentForUpdate=undefined"
+                      [eletricalEquipment]="eletricalEquipmentForUpdate">
+</app-update-equipment>
 <table class="list__table">
   <thead class="table__header">
   <th>Código</th>
@@ -8,23 +11,23 @@
   <th>Usina</th>
   <th>Ações</th>
   </thead>
-  <tbody class="table__body" *ngIf="eletricalEquipaments.length == 0">
+  <tbody class="table__body" *ngIf="eletricalEquipments.length == 0">
   <td colspan="3">Nenhum resultado encontrado!</td>
   </tbody>
-  <tbody class="table__body" *ngFor="let eletricalEquipament of eletricalEquipaments">
+  <tbody class="table__body" *ngFor="let eletricalEquipment of eletricalEquipments">
     <tr>
-      <td>{{ eletricalEquipament.code }}</td>
-      <td>{{ eletricalEquipament.name }}</td>
-      <td>{{ eletricalEquipament.type }}</td>
-      <td>{{ eletricalEquipament.code_power_plant}}</td>
+      <td>{{ eletricalEquipment.code }}</td>
+      <td>{{ eletricalEquipment.name }}</td>
+      <td>{{ eletricalEquipment.type }}</td>
+      <td>{{ eletricalEquipment.code_power_plant}}</td>
       <td>
-        <button [disabled]="eletricalEquipamentForUpdate"
-                (click)="update(eletricalEquipament)"
+        <button [disabled]="eletricalEquipmentForUpdate"
+                (click)="update(eletricalEquipment)"
                 data-message="Editar">
           <i class="fas fa-pen"></i>
         </button>
-        <button [disabled]="eletricalEquipamentForUpdate"
-                (click)="remove(eletricalEquipament)"
+        <button [disabled]="eletricalEquipmentForUpdate"
+                (click)="remove(eletricalEquipment)"
                 data-message="Remover">
           <i class="fas fa-trash"></i>
         </button>

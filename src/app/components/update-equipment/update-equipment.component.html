@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <fieldset>
-    <legend>ATUALIZAR USINA</legend>
+    <legend>ATUALIZAR EQUIPAMENTO</legend>
     <div class="form__field">
       <label for="name" class="form__label">Nome: </label>
       <input id="name"
@@ -10,43 +10,52 @@
              maxlength="100">
       <span class="form__error" *ngIf="form.controls.name.invalid && !form.controls.name.pristine">Este campo deve conter entre 3 e 100 caracteres</span>
       <br>
-      <label for="available_energy" class="form__label">Valor de geração: </label>
-      <input id="available_energy"
-             type="number"
-             class="form__input"
-             formControlName="available_energy"
-             (change)="formatNumber($event)">
+      <label for="type" class="form__label">Tipo: </label>
+      <select id="type"
+              type=""
+              class="form__input"
+              formControlName="type">
+        <option value="1">
+          Linha de transmissão
+
+        </option>
+        <option value="2">
+          Transformador
+        </option>
+        <option value="2">
+          Conector
+        </option>
+      </select>
       <span class="form__error"
-            *ngIf="form.controls.available_energy.invalid &&
-                    !form.controls.available_energy.pristine">
+            *ngIf="form.controls.type.invalid &&
+                    !form.controls.type.pristine">
         Campo vazio ou valor invalido!
       </span>
 
     </div>
     <div class="form__field">
       <label>Usinas disponíveis</label>
-      <p *ngIf="eletricalAreas.length === 0">Nenhum equipamento está disponível!</p>
+      <p *ngIf="powerPlants.length === 0">Nenhuma usina está disponível!</p>
 
       <table class="form__table">
         <thead class="table__head">
         <th>Código</th>
         <th>Nome</th>
-        <th>Tipo</th>
+        <th>Valor de Geração</th>
         <th>Ações</th>
         </thead>
 
-        <tbody class="table__body" *ngFor="let eletricalArea of eletricalAreas">
+        <tbody class="table__body" *ngFor="let powerPlant of powerPlants">
           <tr>
-            <td>{{ eletricalArea.code }}</td>
-            <td>{{ eletricalArea.name }}</td>
-            <td>{{ eletricalArea.available_energy }}</td>
+            <td>{{ powerPlant.code }}</td>
+            <td>{{ powerPlant.name }}</td>
+            <td>{{ powerPlant.available_energy }}</td>
             <td>
               <input type="radio"
-                     [id]="eletricalArea.code"
-                     name="code_eletrical_area"
-                     formControlName="code_eletrical_area"
-                     [value]="eletricalArea.code"
-                     (change)="onCheckboxChange($event)">
+                     [id]="powerPlant.code"
+                     name="code_power_plant"
+                     formControlName="code_power_plant"
+                     [value]="powerPlant.code">
             </td>
           </tr>
         </tbody>
