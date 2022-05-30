@@ -10,6 +10,7 @@ import { CreatePowerPlantComponent } from './components/create-power-plant/creat
 import { ListPowerPlantComponent } from './components/list-power-plant/list-power-plant.component';
 import { FormsModule } from '@angular/forms';
 import { UpdatePowerPlantComponent } from './components/update-power-plant/update-power-plant.component';
+import { CreateEquipmentComponent } from './components/create-equipment/create-equipment.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UpdatePowerPlantComponent } from './components/update-power-plant/updat
     ListAreaComponent,
     CreatePowerPlantComponent,
     ListPowerPlantComponent,
-    UpdatePowerPlantComponent
+    UpdatePowerPlantComponent,
+    CreateEquipmentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,86 @@
+<h1 class="page__title">Cadastro de Equipamento Elétricas</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <div class="form__field">
+      <label for="name" class="form__label">Nome: </label>
+      <input id="name"
+             type="text"
+             class="form__input"
+             formControlName="name"
+             maxlength="100">
+      <span class="form__error" *ngIf="form.controls.name.invalid && !form.controls.name.pristine">Este campo deve conter entre 3 e 100 caracteres</span>
+      <br>
+      <label for="code" class="form__label">Codigo: </label>
+      <input id="code"
+             type="text"
+             class="form__input"
+             formControlName="code"
+             maxlength="20">
+      <span class="form__error"
+            *ngIf="form.controls.code.invalid &&
+                    !form.controls.code.pristine">
+        Este campo deve no máximo 20 caracteres!
+      </span>
+      <br>
+
+      <label for="type" class="form__label">Tipo: </label>
+      <select id="type"
+              type=""
+              class="form__input"
+              formControlName="type">
+        <option value="1">
+          Linha de transmissão
+
+        </option>
+        <option value="2">
+          Transformador
+        </option>
+        <option value="2">
+          Conector
+        </option>
+      </select>
+      <span class="form__error"
+            *ngIf="form.controls.type.invalid &&
+                    !form.controls.type.pristine">
+        Campo vazio ou valor invalido!
+      </span>
+
+    </div>
+    <div class="form__field">
+      <label> Áreas disponíveis</label>
+      <p *ngIf="powerPlants.length === 0">Nenhuma área disponível!</p>
+
+      <table class="form__table">
+        <thead class="table__head">
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Ações</th>
+        </thead>
+
+        <tbody class="table__body" *ngFor="let powerPlant of powerPlants">
+          <tr>
+            <td>{{ powerPlant.code }}</td>
+            <td>{{ powerPlant.name }}</td>
+            <td>{{ powerPlant.available_energy }}</td>
+            <td>
+              <input type="radio"
+                     [id]="powerPlant.code"
+                     name="code_power_plant"
+                     formControlName="code_power_plant"
+                     [value]="powerPlant.code">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="form__field">
+      <button>
+        <a routerLink="/list-power-plant">Cancelar</a>
+      </button>
+      <button type="submit" [disabled]="form.invalid">Salvar</button>
+    </div>
+  </fieldset>
+</form>
