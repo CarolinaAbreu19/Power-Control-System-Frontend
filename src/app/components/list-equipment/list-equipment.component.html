@@ -1,0 +1,38 @@
+<h1>Equipamentos Elétricos</h1>
+
+<table class="list__table">
+  <thead class="table__header">
+  <th>Código</th>
+  <th>Nome</th>
+  <th>Tipo</th>
+  <th>Usina</th>
+  <th>Ações</th>
+  </thead>
+  <tbody class="table__body" *ngIf="eletricalEquipaments.length == 0">
+  <td colspan="3">Nenhum resultado encontrado!</td>
+  </tbody>
+  <tbody class="table__body" *ngFor="let eletricalEquipament of eletricalEquipaments">
+    <tr>
+      <td>{{ eletricalEquipament.code }}</td>
+      <td>{{ eletricalEquipament.name }}</td>
+      <td>{{ eletricalEquipament.type }}</td>
+      <td>{{ eletricalEquipament.code_power_plant}}</td>
+      <td>
+        <button [disabled]="eletricalEquipamentForUpdate"
+                (click)="update(eletricalEquipament)"
+                data-message="Editar">
+          <i class="fas fa-pen"></i>
+        </button>
+        <button [disabled]="eletricalEquipamentForUpdate"
+                (click)="remove(eletricalEquipament)"
+                data-message="Remover">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button>
+  <a routerLink="/create-equipment">Novo equipamento elétrico</a>
+</button>

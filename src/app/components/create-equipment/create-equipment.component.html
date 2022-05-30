@@ -48,14 +48,14 @@
 
     </div>
     <div class="form__field">
-      <label> Áreas disponíveis</label>
+      <label> Usinas disponíveis</label>
       <p *ngIf="powerPlants.length === 0">Nenhuma área disponível!</p>
 
       <table class="form__table">
         <thead class="table__head">
         <th>Código</th>
         <th>Nome</th>
-        <th>Tipo</th>
+        <th>Valor de Geração</th>
         <th>Ações</th>
         </thead>
 
@@ -78,7 +78,7 @@
     </div>
     <div class="form__field">
       <button>
-        <a routerLink="/list-power-plant">Cancelar</a>
+        <a routerLink="/list-equipment">Cancelar</a>
       </button>
       <button type="submit" [disabled]="form.invalid">Salvar</button>
     </div>

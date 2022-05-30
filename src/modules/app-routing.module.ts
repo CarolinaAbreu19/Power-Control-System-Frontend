@@ -5,6 +5,7 @@ import { CreatePowerPlantComponent } from 'src/app/components/create-power-plant
 import { ListAreaComponent } from 'src/app/components/list-area/list-area.component';
 import { ListPowerPlantComponent } from 'src/app/components/list-power-plant/list-power-plant.component';
 import { CreateEquipmentComponent } from '../app/components/create-equipment/create-equipment.component';
+import { ListEquipmentComponent } from '../app/components/list-equipment/list-equipment.component';
 
 const routes: Routes = [
   { path: 'create-area', component: CreateAreaComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'create-power-plant', component: CreatePowerPlantComponent },
   { path: 'list-power-plant', component: ListPowerPlantComponent },
   { path: 'create-equipment', component: CreateEquipmentComponent },
+  { path: 'list-equipment', component: ListEquipmentComponent },
 ];
 
 @NgModule({
