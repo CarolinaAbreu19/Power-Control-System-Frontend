@@ -50,6 +50,10 @@ button:hover {
     background-color: var(--red-button);
 }
 
+.blue__button {
+    background-color: var(--sidebar);
+}
+
 /* CUSTOM TABLE */
 
 .list__table {
