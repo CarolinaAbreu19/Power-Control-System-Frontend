@@ -32,4 +32,5 @@
 .main__content {
     position: relative;
     left: 22vw;
+    color: var(--black);
 }
