@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li, nav, a, p, div {
+    all: unset;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 62,5%;
+}
+
+:root {
+    --white: #ffffff;
+    --sidebar: #134563;
+}
