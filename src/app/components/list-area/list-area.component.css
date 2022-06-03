@@ -1,0 +1,7 @@
+.new__item {
+    display: flex;
+    justify-content: flex-end;
+
+    margin: 1rem 0;
+    width: 70vw;
+}
