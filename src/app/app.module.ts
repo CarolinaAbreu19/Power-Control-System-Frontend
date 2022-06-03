@@ -8,6 +8,11 @@ import { ListAreaComponent } from './components/list-area/list-area.component';
 import { AppRoutingModule } from '../modules/app-routing.module';
 import { CreatePowerPlantComponent } from './components/create-power-plant/create-power-plant.component';
 import { ListPowerPlantComponent } from './components/list-power-plant/list-power-plant.component';
+import { FormsModule } from '@angular/forms';
+import { UpdatePowerPlantComponent } from './components/update-power-plant/update-power-plant.component';
+import { CreateEquipmentComponent } from './components/create-equipment/create-equipment.component';
+import { ListEquipmentComponent } from './components/list-equipment/list-equipment.component';
+import { UpdateEquipmentComponent } from './components/update-equipment/update-equipment.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +20,17 @@ import { ListPowerPlantComponent } from './components/list-power-plant/list-powe
     CreateAreaComponent,
     ListAreaComponent,
     CreatePowerPlantComponent,
-    ListPowerPlantComponent
+    ListPowerPlantComponent,
+    UpdatePowerPlantComponent,
+    CreateEquipmentComponent,
+    ListEquipmentComponent,
+    UpdateEquipmentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -29,10 +29,12 @@
             <br>
             <label for="available_energy" class="form__label">Valor de geração: </label>
             <input 
-                id="available_energy" 
-                type="number" 
-                class="form__input" 
-                formControlName="available_energy"
+              id="available_energy" 
+              type="number" 
+              class="form__input" 
+              formControlName="available_energy"
+              (change)="formatNumber($event)"
+
             >
             <span
                 class="form__error"
@@ -44,17 +46,10 @@
             
         </div>
         <div class="form__field">
-            <label>Equipamentos disponíveis</label>
-            <p *ngIf="eletricalAreas.length === 0">Nenhuma equipamento está disponível!</p>
-            
-            <table class="form__table">
-                <thead class="table__head">
-                    <th>Código</th>
-                    <th>Nome</th>
-                    <th>Tipo</th>
-                    <th>Ações</th>
-                </thead>
+          <label> Áreas disponíveis</label>
+          <p *ngIf="eletricalAreas.length === 0">Nenhuma área disponível!</p>
 
+<<<<<<< HEAD
                 <tbody class="table__body" *ngFor="let eletricalArea of eletricalAreas">
                     <tr>
                         <td>{{ eletricalArea.code }}</td>
@@ -71,6 +66,32 @@
                     </tr>
                 </tbody>
             </table>
+=======
+          <table class="form__table">
+            <thead class="table__head">
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+            </thead>
+
+            <tbody class="table__body" *ngFor="let eletricalArea of eletricalAreas">
+              <tr>
+                <td>{{ eletricalArea.code }}</td>
+                <td>{{ eletricalArea.name }}</td>
+                <td>{{ eletricalArea.available_energy }}</td>
+                <td>
+                  <input type="radio"
+                         [id]="eletricalArea.code"
+                         name="code_eletrical_area"
+                         formControlName="code_eletrical_area"
+                         [value]="eletricalArea.code"
+                         (change)="onCheckboxChange($event)">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+>>>>>>> 65b999293b0dfab5aa7330acaaf1172b48d6582e
 
         </div>
         <div class="form__field">
