@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --white: #ffffff;
+    --black: #1C1414;
+    --table-header: #F4F0F0;
+    --table-body: #FFFAFA;
+    --sidebar: #134563;
+    --green-button: #04C45C;
+    --red-button: #FB0615;
+}
 
 body {
     margin: 0;
@@ -6,7 +15,7 @@ body {
     box-sizing: border-box;
 }
 
-ul, li, nav, a, p, div {
+ul, li, nav, a, p, div, button {
     all: unset;
 }
 
@@ -15,7 +24,19 @@ html {
     font-size: 62,5%;
 }
 
-:root {
-    --white: #ffffff;
-    --sidebar: #134563;
+
+button {
+    border-radius: 8px;
+    padding: 1.6rem 2.4rem;
+
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.green__button {
+    background-color: var(--green-button);
+}
+
+.red__button {
+    background-color: var(--red-button);
 }
