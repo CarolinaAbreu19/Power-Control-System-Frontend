@@ -1,25 +1,7 @@
-a {
-    all: unset;
-}
-
-.table__header, .table__body {
+.new__item {
     display: flex;
+    justify-content: flex-end;
 
-    border: 1px solid black;
-    margin-bottom: 5px;
-}
-
-.table__body {
-    flex-direction: column;
-    gap: 5px;
-}
-
-.table__row {
-    display: flex;
-    gap: 50px;
-}
-
-td, th {
-    min-width: 70px;
-    text-align: center;
+    margin: 1rem 0;
+    width: 70vw;
 }

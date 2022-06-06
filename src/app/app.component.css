@@ -1,0 +1,36 @@
+.page__wrapper {
+    display: flex;
+    gap: 2rem;
+}
+
+.sidebar {
+    background-color: var(--sidebar);
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    width: 20vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.sidebar__link {
+    color: var(--white);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.main__content {
+    position: relative;
+    left: 22vw;
+    color: var(--black);
+}

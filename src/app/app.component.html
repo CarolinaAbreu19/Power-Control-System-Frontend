@@ -1,8 +1,15 @@
-<nav>
-    <ul>
-        <li><a routerLink="/list-areas">Áreas Elétricas</a></li>
-        <li><a routerLink="/create-power-plant">Usinas Elétricas</a></li>
+<div class="page__wrapper">
+  
+  <nav class="sidebar">
+    <ul class="sidebar__list">
+      <li class="sidebar__link"><a routerLink="/list-areas">Áreas Elétricas</a></li>
+      <li class="sidebar__link"><a routerLink="/list-power-plants">Usinas</a></li>
+      <li class="sidebar__link"><a routerLink="/list-equipments">Equipamentos</a></li>
     </ul>
-</nav>
-
-<router-outlet></router-outlet>
+  </nav>
+  
+  
+  <main class="main__content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,1 +1,130 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --white: #ffffff;
+    --black: #1C1414;
+    --table-header: #F4F0F0;
+    --table-body: #FFFAFA;
+    --sidebar: #134563;
+    --green: #04C45C;
+    --red: #FB0615;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, li, nav, a, p, div, button, fieldset {
+    all: unset;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 62,5%;
+}
+
+
+button {
+    border-radius: 8px;
+    padding: 0.6rem 1.5rem;
+
+    cursor: pointer;
+
+    color: var(--white);
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+button:hover {
+    transition: 0.5s;
+    opacity: 0.6;
+}
+
+/* CUSTOM BUTTONS */
+
+.green__button {
+    background-color: var(--green);
+}
+
+.red__button {
+    background-color: var(--red);
+}
+
+.blue__button {
+    background-color: var(--sidebar);
+}
+
+/* CUSTOM TABLE */
+
+.list__table {
+    width: 70vw;
+}
+
+.table__header, .table__body {
+    display: flex;
+}
+
+.table__header {
+    background-color: var(--table-header);
+    margin-bottom: 1rem;
+}
+
+.table__body {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.table__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table__header>.table__row {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.table__body>.table__row {
+    background-color: var(--table-body);
+    padding: 0.5rem;
+}
+
+.table__item {
+    width: 15rem;
+    text-align: center;
+}
+
+/* CUSTOM ERROR MESSAGE */
+
+.error__message {
+    font-weight: 300;
+    color: var(--red);
+}
+
+/* CUSTOM FORM */
+
+.form__field, .button__field {
+    display: flex;
+    gap: 8px;
+}
+
+.form__field {
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form__label {
+    font-size: 1.2rem;
+}
+
+.form__input {
+    background: #FDFAFA;
+    border: 1px solid #E8E8E8;
+    padding: 16px;
+}
+
+.button__field {
+    margin-top: 2rem;
+}
