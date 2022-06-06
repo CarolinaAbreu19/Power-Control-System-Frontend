@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CreateAreaComponent } from './components/create-area/create-area.component';
@@ -31,6 +32,7 @@ import { UpdateEquipmentComponent } from './components/update-equipment/update-e
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
