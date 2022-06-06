@@ -11,9 +11,9 @@ const routes: Routes = [
   { path: 'create-area', component: CreateAreaComponent },
   { path: 'list-areas', component: ListAreaComponent },
   { path: 'create-power-plant', component: CreatePowerPlantComponent },
-  { path: 'list-power-plant', component: ListPowerPlantComponent },
+  { path: 'list-power-plants', component: ListPowerPlantComponent },
   { path: 'create-equipment', component: CreateEquipmentComponent },
-  { path: 'list-equipment', component: ListEquipmentComponent },
+  { path: 'list-equipments', component: ListEquipmentComponent },
 ];
 
 @NgModule({
