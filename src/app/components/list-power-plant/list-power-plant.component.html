@@ -9,33 +9,33 @@
 
 <table class="list__table">
     <thead class="table__header">
-        <th>Código</th>
-        <th>Nome</th>
-        <th>Valor de Geração</th>
-        <th>Área Eletrica</th>
-        <th>Ações</th>
+        <th class="table__item">Código</th>
+        <th class="table__item">Nome</th>
+        <th class="table__item">Valor de Geração</th>
+        <th class="table__item">Área Eletrica</th>
+        <th class="table__item">Ações</th>
     </thead>
     <tbody class="table__body" *ngIf="powerPlants.length == 0">
         <td colspan="3">Nenhum resultado encontrado!</td>
     </tbody>
     <tbody class="table__body" *ngFor="let powerPlant of powerPlants">
       <tr>
-        <td>{{ powerPlant.code }}</td>
-        <td>{{ powerPlant.name }}</td>
-        <td>{{ powerPlant.available_energy }}</td>
-        <td>{{ powerPlant.code_eletrical_area}}</td>
-        <td>
+        <td class="table__item">{{ powerPlant.code }}</td>
+        <td class="table__item">{{ powerPlant.name }}</td>
+        <td class="table__item">{{ powerPlant.available_energy }}</td>
+        <td class="table__item">{{ powerPlant.code_eletrical_area}}</td>
+        <td class="table__item">
           <button
                   [disabled]="powerPlantForUpdate"
                   (click)="update(powerPlant)"
                   data-message="Editar">
-            <i class="fas fa-pen"></i>
+            <i class="fas fa-pen" class="button__icon"></i>
           </button>
           <button
                   [disabled]="powerPlantForUpdate"
                   (click)="remove(powerPlant)"
                   data-message="Remover">
-            <i class="fas fa-trash"></i>
+            <i class="fas fa-trash" class="button__icon"></i>
           </button>
         </td>
       </tr>
