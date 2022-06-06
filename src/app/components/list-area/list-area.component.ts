@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EletricalAreaService } from 'src/app/services/eletrical-area.service';
 import { EletricalArea } from '../../../models/eletricalArea.model';
 
 @Component({
@@ -16,7 +17,8 @@ export class ListAreaComponent implements OnInit {
     {id: 4, code: "0004", name: "Teste4", available_energy: 10 },
   ];
 
-  constructor() { }
+  constructor(private EletricalAreaService: EletricalAreaService) { }
+  // constructor() { }
 
   edit(area: EletricalArea) {
     // Fazer uma requisição de editar os dados passando as informações da área elétrica
@@ -29,6 +31,16 @@ export class ListAreaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAll();
+  }
+
+  getAll() {
+    this.EletricalAreaService.getAll()
+    .subscribe(
+      response => {
+        console.log(response);
+      }
+    )
   }
 
 }
