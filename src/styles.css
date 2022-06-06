@@ -5,8 +5,8 @@
     --table-header: #F4F0F0;
     --table-body: #FFFAFA;
     --sidebar: #134563;
-    --green-button: #04C45C;
-    --red-button: #FB0615;
+    --green: #04C45C;
+    --red: #FB0615;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
     box-sizing: border-box;
 }
 
-ul, li, nav, a, p, div, button {
+ul, li, nav, a, p, div, button, fieldset {
     all: unset;
 }
 
@@ -33,6 +33,7 @@ button {
 
     color: var(--white);
     text-transform: uppercase;
+    opacity: 0.85;
 }
 
 button:hover {
@@ -43,11 +44,11 @@ button:hover {
 /* CUSTOM BUTTONS */
 
 .green__button {
-    background-color: var(--green-button);
+    background-color: var(--green);
 }
 
 .red__button {
-    background-color: var(--red-button);
+    background-color: var(--red);
 }
 
 .blue__button {
@@ -93,4 +94,37 @@ button:hover {
 .table__item {
     width: 15rem;
     text-align: center;
+}
+
+/* CUSTOM ERROR MESSAGE */
+
+.error__message {
+    font-weight: 300;
+    color: var(--red);
+}
+
+/* CUSTOM FORM */
+
+.form__field, .button__field {
+    display: flex;
+    gap: 8px;
+}
+
+.form__field {
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form__label {
+    font-size: 1.2rem;
+}
+
+.form__input {
+    background: #FDFAFA;
+    border: 1px solid #E8E8E8;
+    padding: 16px;
+}
+
+.button__field {
+    margin-top: 2rem;
 }
