@@ -28,8 +28,8 @@
         <td colspan="3">Nenhum resultado encontrado!</td>
     </tbody>
 
-    <tbody class="table__body" *ngFor="let powerPlant of powerPlants">
-      <tr>
+    <tbody class="table__body">
+      <tr class="table__row" *ngFor="let powerPlant of powerPlants">
         <td class="table__item">{{ powerPlant.code }}</td>
         <td class="table__item">{{ powerPlant.name }}</td>
         <td class="table__item">{{ powerPlant.available_energy }}</td>

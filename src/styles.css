@@ -71,11 +71,12 @@ button:hover {
 /* CUSTOM TABLE */
 
 .list__table {
-    width: 70vw;
+    width: 75vw;
 }
 
 .table__header, .table__body {
     display: flex;
+    max-width: 75vw;
 }
 
 .table__header {
