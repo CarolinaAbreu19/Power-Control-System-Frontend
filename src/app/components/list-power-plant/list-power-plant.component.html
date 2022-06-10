@@ -1,4 +1,4 @@
-<h1>Usinas Elétricas</h1>
+<h1>Usinas</h1>
 
 <app-update-power-plant
   *ngIf="powerPlantForUpdate"
@@ -7,17 +7,27 @@
 >
 </app-update-power-plant>
 
+<div class="new__item">
+  <button class="blue__button">
+    <a routerLink="/create-power-plant">Nova usina</a>
+  </button>
+</div>
+
 <table class="list__table">
     <thead class="table__header">
-        <th class="table__item">Código</th>
-        <th class="table__item">Nome</th>
-        <th class="table__item">Valor de Geração</th>
-        <th class="table__item">Área Eletrica</th>
-        <th class="table__item">Ações</th>
+        <tr class="table__row">
+          <th class="table__item">Código</th>
+          <th class="table__item">Nome</th>
+          <th class="table__item">Valor de Geração</th>
+          <th class="table__item">Área Eletrica</th>
+          <th class="table__item">Ações</th>
+        </tr>
     </thead>
+
     <tbody class="table__body" *ngIf="powerPlants.length == 0">
         <td colspan="3">Nenhum resultado encontrado!</td>
     </tbody>
+
     <tbody class="table__body" *ngFor="let powerPlant of powerPlants">
       <tr>
         <td class="table__item">{{ powerPlant.code }}</td>
@@ -28,20 +38,18 @@
           <button
                   [disabled]="powerPlantForUpdate"
                   (click)="update(powerPlant)"
-                  data-message="Editar">
-            <i class="fas fa-pen" class="button__icon"></i>
+                  data-message="Editar"
+                  class="icon__button">
+                  <i class="fa-regular fa-pen-to-square"></i>
           </button>
           <button
                   [disabled]="powerPlantForUpdate"
                   (click)="remove(powerPlant)"
-                  data-message="Remover">
-            <i class="fas fa-trash" class="button__icon"></i>
+                  data-message="Remover"
+                  class="icon__button">
+                  <i class="fa-regular fa-trash-can"></i>
           </button>
         </td>
       </tr>
-        </tbody>
+    </tbody>
 </table>
-
-<button>
-    <a routerLink="/create-power-plant">Nova usina elétrica</a>
-</button>

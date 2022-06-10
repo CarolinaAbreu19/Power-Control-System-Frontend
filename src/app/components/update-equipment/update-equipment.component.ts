@@ -10,10 +10,10 @@ import { PowerPlant } from '../../../models/powerPlant.model';
 })
 export class UpdateEquipmentComponent implements OnInit {
   public powerPlants: PowerPlant[] = [
-    { id: 1, code: "0001", name: "teste2", available_energy: 10, code_eletrical_area: 11, eletricalEquip: [] },
-    { id: 2, code: "0002", name: "teste3", available_energy: 10, code_eletrical_area: 12, eletricalEquip: [] },
-    { id: 3, code: "0003", name: "teste4", available_energy: 10, code_eletrical_area: 8, eletricalEquip: [] },
-    { id: 4, code: "0004", name: "teste5", available_energy: 10, code_eletrical_area: 11, eletricalEquip: [] },
+    { id: 1, code: "0001", name: "teste2", available_energy: 10, code_eletrical_area: 11 },
+    { id: 2, code: "0002", name: "teste3", available_energy: 10, code_eletrical_area: 12 },
+    { id: 3, code: "0003", name: "teste4", available_energy: 10, code_eletrical_area: 8 },
+    { id: 4, code: "0004", name: "teste5", available_energy: 10, code_eletrical_area: 11 },
   ];
   @Input() eletricalEquipment: EletricalEquipament | undefined;
   @Output() finishUpdateEquipment = new EventEmitter();

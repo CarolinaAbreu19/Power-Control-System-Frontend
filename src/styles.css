@@ -41,6 +41,11 @@ button:hover {
     opacity: 0.6;
 }
 
+.icon__button {
+    padding: 0.5rem;
+    margin-left: 1rem;
+}
+
 /* CUSTOM BUTTONS */
 
 .green__button {
@@ -53,6 +58,14 @@ button:hover {
 
 .blue__button {
     background-color: var(--sidebar);
+}
+
+.fa-pen-to-square {
+    color: var(--green);
+}
+
+.fa-trash-can {
+    color: var(--red);
 }
 
 /* CUSTOM TABLE */
@@ -127,4 +140,12 @@ button:hover {
 
 .button__field {
     margin-top: 2rem;
+}
+
+.new__item {
+    display: flex;
+    justify-content: flex-end;
+
+    margin: 1rem 0;
+    width: 70vw;
 }

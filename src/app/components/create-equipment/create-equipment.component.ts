@@ -11,10 +11,10 @@ import { PowerPlant } from '../../../models/powerPlant.model';
 })
 export class CreateEquipmentComponent implements OnInit {
   public powerPlants: PowerPlant[] = [
-    { id: 1, code: "0001", name: "teste2", available_energy: 30, code_eletrical_area: '0001', eletricalEquip: [] },
-    { id: 2, code: "0002", name: "teste3", available_energy: 16, code_eletrical_area: '0001', eletricalEquip: [] },
-    { id: 3, code: "0003", name: "teste4", available_energy: 13, code_eletrical_area: '0001', eletricalEquip: [] },
-    { id: 4, code: "0004", name: "teste5", available_energy: 30, code_eletrical_area: '0001', eletricalEquip: [] },
+    { id: 1, code: "0001", name: "teste2", available_energy: 30, code_eletrical_area: '0001' },
+    { id: 2, code: "0002", name: "teste3", available_energy: 16, code_eletrical_area: '0001' },
+    { id: 3, code: "0003", name: "teste4", available_energy: 13, code_eletrical_area: '0001' },
+    { id: 4, code: "0004", name: "teste5", available_energy: 30, code_eletrical_area: '0001' },
   ];
   public eletricalEquipament: EletricalEquipament[] = [];
   public form: FormGroup;

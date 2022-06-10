@@ -6,8 +6,7 @@ export class PowerPlant {
     public code: String,
     public name: String,
     public available_energy: Number,
-    public code_eletrical_area: String | Number,
-    public eletricalEquip: EletricalEquipament[],
+    public code_eletrical_area: String | Number
   ) {
   }
 }
